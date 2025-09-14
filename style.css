@@ -1,0 +1,253 @@
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+  color: #333;
+}
+
+header {
+  background: #0078d7;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.connect-section {
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.connect-section h2 {
+  margin-bottom: 15px;
+}
+
+.connect-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.connect-buttons .google {
+  background: #db4437;
+}
+
+.connect-buttons .gmail {
+  background: #ea4335;
+}
+
+.connect-buttons .teams {
+  background: #6264a7;
+}
+
+.connect-buttons .todo {
+  background: #2b579a;
+}
+
+.connect-buttons button:hover {
+  opacity: 0.85;
+}
+
+main {
+  padding: 20px;
+}
+
+Fixed 2-column grid 
+#deadline-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: stretch;   /* makes items match tallest in row 
+}
+
+
+.deadline-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 120px;   /* ensures no collapsing / overlap 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.deadline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Priority colors 
+.deadline-card.safe {
+  border-left: 6px solid #4caf50;
+}
+
+.deadline-card.soon {
+  border-left: 6px solid #ff9800;
+}
+
+.deadline-card.urgent {
+  border-left: 6px solid #f44336;
+}
+
+/* Mobile view 
+@media (max-width: 700px) {
+  #deadline-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #ddd;
+} */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+  color: #333;
+}
+
+header {
+  background: #0078d7;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.connect-section {
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.connect-section h2 {
+  margin-bottom: 15px;
+}
+
+.connect-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.connect-buttons .google {
+  background: #db4437;
+}
+
+.connect-buttons .gmail {
+  background: #ea4335;
+}
+
+.connect-buttons .teams {
+  background: #6264a7;
+}
+
+.connect-buttons .todo {
+  background: #2b579a;
+}
+
+.connect-buttons button:hover {
+  opacity: 0.85;
+}
+
+main {
+  padding: 20px;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* main + sidebar */
+  gap: 20px;
+}
+
+/* Deadline lists */
+#deadline-list,
+#missed-deadline-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Card styling */
+.deadline-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.deadline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Priority colors */
+.deadline-card.safe {
+  border-left: 6px solid #4caf50; /* green */
+}
+
+.deadline-card.soon {
+  border-left: 6px solid #ffeb3b; /* yellow */
+}
+
+.deadline-card.urgent {
+  border-left: 6px solid #ff9800; /* orange */
+}
+
+.deadline-card.missed {
+  border-left: 6px solid #f44336; /* red */
+  opacity: 0.85;
+}
+
+/* Sidebar */
+aside {
+  background: #fff5f5;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+aside h2 {
+  margin-top: 0;
+  color: #d32f2f;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #ddd;
+}
+
