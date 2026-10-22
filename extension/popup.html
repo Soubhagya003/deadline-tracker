@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Deadline Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <span class="logo-icon">📅</span>
+      <div>
+        <div class="header-title-row">
+          <h1>AI Deadline Tracker</h1>
+          <span class="ai-pill">✨ Gemini</span>
+        </div>
+        <div id="status-pill" class="status-pill checking">Connecting...</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="btn-refresh" class="icon-btn" title="Refresh deadlines">🔄</button>
+      <button id="btn-open-web" class="icon-btn" title="Open Full Dashboard">↗</button>
+    </div>
+  </header>
+
+  <!-- Notice Banner for Demo Mode / Backend Offline -->
+  <div id="notice-banner" class="banner" style="display: none;"></div>
+
+  <!-- Tabs (Upcoming, Missed, Filtered Noise) -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="upcoming">
+      Upcoming <span id="tab-active-count" class="tab-badge">0</span>
+    </button>
+    <button class="tab-btn" data-tab="missed">
+      Missed <span id="tab-missed-count" class="tab-badge missed">0</span>
+    </button>
+    <button class="tab-btn" data-tab="ignored">
+      Filtered <span id="tab-ignored-count" class="tab-badge ignored">0</span>
+    </button>
+  </div>
+
+  <!-- Content Container -->
+  <main class="popup-body">
+    <!-- Upcoming Section -->
+    <section id="tab-upcoming" class="tab-content active">
+      <div id="upcoming-list" class="deadline-container">
+        <p class="placeholder-text">Analyzing deadlines...</p>
+      </div>
+    </section>
+
+    <!-- Missed Section -->
+    <section id="tab-missed" class="tab-content">
+      <div id="missed-list" class="deadline-container">
+        <p class="placeholder-text">Checking missed items...</p>
+      </div>
+    </section>
+
+    <!-- Filtered Marketing Section -->
+    <section id="tab-ignored" class="tab-content">
+      <div id="ignored-list" class="deadline-container">
+        <p class="placeholder-text">No clutter detected.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Actions -->
+  <footer>
+    <button id="btn-connect" class="btn connect-btn">Connect Google Account</button>
+    <button id="btn-logout-ext" class="btn logout-btn" style="display: none;">🚪 Disconnect Account</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

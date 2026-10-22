@@ -1,46 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deadline Tracker</title>
+  <title>📅 AI Deadline Tracker</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>📅 Deadline Tracker</h1>
+    <div class="header-content">
+      <div class="header-title-group">
+        <h1>📅 AI Deadline Tracker</h1>
+        <span class="ai-badge">✨ Gemini Powered</span>
+      </div>
+      <div class="header-status-group">
+        <div id="ai-status" class="status-badge ai-active">🤖 AI Active</div>
+        <div id="connection-status" class="status-badge checking">Connecting...</div>
+      </div>
+    </div>
   </header>
 
+  <!-- Account Connection Bar -->
   <section class="connect-section">
-    <h2>Connect Your Accounts</h2>
-    <div class="connect-buttons">
-      <button class="google">Connect Google Calendar</button>
-      <button class="gmail">Connect Gmail</button>
-      <button class="teams">Connect Microsoft Teams</button>
-      <button class="todo">Connect Microsoft To Do</button>
+    <div class="connect-container">
+      <div class="connect-buttons">
+        <button id="btn-connect-google" class="btn google">Connect Google Calendar</button>
+        <button id="btn-connect-gmail" class="btn gmail">Connect Gmail</button>
+        <button id="btn-test-ai" class="btn ai-test">✨ Test AI Analyzer</button>
+        <button id="btn-refresh" class="btn refresh">🔄 Refresh</button>
+        <button id="btn-logout" class="btn logout" style="display: none;">🚪 Disconnect Google Account</button>
+      </div>
+    </div>
+    <div id="demo-notice" class="notice-banner" style="display: none;">
+      ℹ️ <strong>Demo & AI Mode Active:</strong> Running with sample data and AI NLP triage. Click "Test AI Analyzer" to test live text parsing, or add your Google & Gemini keys in <code>.env</code>.
     </div>
   </section>
 
+  <!-- FEATURE 6: Daily AI Executive Briefing -->
+  <section class="digest-section">
+    <div class="digest-card">
+      <div class="digest-header">
+        <h3 id="digest-greeting">☀️ Good morning!</h3>
+        <span class="digest-tag">Daily AI Briefing</span>
+      </div>
+      <p id="digest-narrative" class="digest-text">Loading executive summary...</p>
+      <div class="digest-stats" id="digest-stats">
+        <span class="stat-pill urgent"><strong id="stat-urgent">0</strong> Urgent Today</span>
+        <span class="stat-pill upcoming"><strong id="stat-upcoming">0</strong> Upcoming</span>
+        <span class="stat-pill ignored"><strong id="stat-ignored">0</strong> Marketing Ignored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Deadline Grid -->
   <main>
     <div class="main-container">
-      <div>
-        <h2>Upcoming Deadlines</h2>
-        <div id="deadline-list"></div>
-      </div>
+      <!-- Upcoming Deadlines Column -->
+      <section class="upcoming-section">
+        <div class="section-header">
+          <h2>Upcoming Deadlines</h2>
+          <span id="active-count" class="count-pill">0</span>
+        </div>
+        <div id="deadline-list">
+          <p class="placeholder-text">Analyzing inbox and calendar...</p>
+        </div>
+      </section>
 
-      <aside>
-        <h2>Missed Deadlines</h2>
-        <div id="missed-deadline-list"></div>
+      <!-- Sidebar: Missed & AI Filtered Noise -->
+      <aside class="sidebar-section">
+        <!-- Missed Deadlines -->
+        <div class="missed-container">
+          <div class="section-header">
+            <h2>Missed Deadlines</h2>
+            <span id="missed-count" class="count-pill missed">0</span>
+          </div>
+          <div id="missed-deadline-list">
+            <p class="placeholder-text">Checking overdue items...</p>
+          </div>
+        </div>
+
+        <!-- FEATURE 1: AI Filtered / Ignored Noise -->
+        <div class="ignored-container">
+          <div class="section-header">
+            <h2>🛡️ Filtered Clutter</h2>
+            <span id="ignored-count" class="count-pill ignored">0</span>
+          </div>
+          <p class="ignored-subtext">Marketing countdowns & promotional spam automatically ignored by AI.</p>
+          <div id="ignored-list"></div>
+        </div>
       </aside>
     </div>
   </main>
 
+  <!-- AI Sandbox Test Modal -->
+  <div id="ai-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>✨ Live AI Email Analyzer Sandbox</h3>
+        <button id="modal-close" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Type or paste any email subject or body to see Gemini extract the deadline, filter noise, and score priority:</p>
+        <div class="form-group">
+          <label for="ai-input-subject">Email Subject</label>
+          <input type="text" id="ai-input-subject" placeholder="e.g. Please submit final project report by tomorrow 5 PM" />
+        </div>
+        <div class="form-group">
+          <label for="ai-input-snippet">Email Body / Snippet (Optional)</label>
+          <textarea id="ai-input-snippet" rows="3" placeholder="e.g. Include your GitHub repo link and PDF documentation. Late penalties apply."></textarea>
+        </div>
+        <div class="preset-buttons">
+          <span>Quick presets:</span>
+          <button class="preset-btn" data-preset="urgent">Urgent Assignment</button>
+          <button class="preset-btn" data-preset="promo">Fake Promo Sale</button>
+          <button class="preset-btn" data-preset="invoice">Invoice Payment</button>
+        </div>
+        <button id="btn-run-ai" class="btn btn-primary">⚡ Analyze with AI</button>
+        <div id="ai-result-box" class="ai-result" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>Deadline Tracker © 2025</p>
+    <p>AI Deadline Tracker © 2026 • Real-time Gemini NLP Triage & Cross-Platform Calendar Sync</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
